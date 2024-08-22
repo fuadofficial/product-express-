@@ -7,9 +7,9 @@ const Header = () => {
     <header className="header">
       <div className="header__left">
         <input type="text" placeholder="Search..." className="header__search" />
+        <FaSearch className="header__icon search" />
       </div>
       <div className="header__right">
-        <FaSearch className="header__icon" />
         <FaUser className="header__icon" />
       </div>
     </header>
