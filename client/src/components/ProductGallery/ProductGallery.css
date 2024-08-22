@@ -1,0 +1,32 @@
+.product-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .product-gallery__main img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s;
+  }
+  
+  .product-gallery__thumbnails {
+    display: flex;
+    margin-top: 0.5rem;
+  }
+  
+  .product-gallery__thumbnails img {
+    width: 60px;
+    height: auto;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: border 0.3s;
+    border: 2px solid transparent;
+  }
+  
+  .product-gallery__thumbnails img.active {
+    border: 2px solid #00796b; /* Dark Teal */
+  }
+  
