@@ -1,0 +1,11 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+main {
+  padding-bottom: 60px; /* To prevent content from being hidden under the footer */
+}
