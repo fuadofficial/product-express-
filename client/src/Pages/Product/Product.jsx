@@ -1,25 +1,39 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { ProductsContext } from '../../context/ProductsContext';
 import ProductGallery from '../../components/ProductGallery/ProductGallery';
 import './Product.css';
 
 const Product = () => {
   const { id } = useParams();
-  const { products } = useContext(ProductsContext);
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (products.length > 0) {
-      const foundProduct = products.find(item => item.id === parseInt(id));
-      setProduct(foundProduct);
-      setLoading(false);
-    }
-  }, [id, products]);
+    const fetchProduct = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/product/${id}`);
+        if (!response.ok) {
+          throw new Error('Product not found');
+        }
+        const data = await response.json();
+        setProduct(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProduct();
+  }, [id]);
 
   if (loading) {
     return <div className="loading">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="not-found">{error}</div>;
   }
 
   if (!product) {
