@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import './Home.css';
 import axios from 'axios';
+import { ProductsContext } from '../../context/ProductsContext';
 
 const API_URL = "http://localhost:3000/";
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
+  const { products, setProducts } = useContext(ProductsContext);
 
   useEffect(() => {
     fetchProducts();
