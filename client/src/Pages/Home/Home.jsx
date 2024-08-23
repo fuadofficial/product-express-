@@ -1,29 +1,32 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import './Home.css';
+import axios from 'axios';
+
+const API_URL = "http://localhost:3000/";
 
 const Home = () => {
-  // Mock product data
-  const products = [
-    { id: 1, name: 'Product 1', description: 'Description 1', image: '/src/assets/images/product1.jpg' },
-    { id: 2, name: 'Product 2', description: 'Description 2', image: '/src/assets/images/product2.jpg' },
-    { id: 2, name: 'Product 2', description: 'Description 2', image: '/src/assets/images/product2.jpg' },
-    { id: 2, name: 'Product 2', description: 'Description 2', image: '/src/assets/images/product2.jpg' },
-    { id: 2, name: 'Product 2', description: 'Description 2', image: '/src/assets/images/product2.jpg' },
-    { id: 2, name: 'Product 2', description: 'Description 2', image: '/src/assets/images/product2.jpg' },
-    { id: 2, name: 'Product 2', description: 'Description 2', image: '/src/assets/images/product2.jpg' },
-    { id: 2, name: 'Product 2', description: 'Description 2', image: '/src/assets/images/product2.jpg' },
-    { id: 2, name: 'Product 2', description: 'Description 2', image: '/src/assets/images/product2.jpg' },
-    { id: 2, name: 'Product 2', description: 'Description 2', image: '/src/assets/images/product2.jpg' },
-    { id: 2, name: 'Product 2', description: 'Description 2', image: '/src/assets/images/product2.jpg' },
-    { id: 2, name: 'Product 2', description: 'Description 2', image: '/src/assets/images/product2.jpg' },
-    // Add more products
-  ];
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const response = await axios(API_URL);
+      setProducts(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="home">
-      {products.map(product => (
-        <ProductCard key={product.id} product={product} />
+      {products.map((product, index) => (
+        <div key={index}>
+          <ProductCard product={product} />
+        </div>
       ))}
     </div>
   );
