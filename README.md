@@ -1,4 +1,4 @@
-Product Details Application with React and Express
+# Product Details Application with React and Express
 This project demonstrates a React and Express application designed to display product details dynamically. The application retrieves product data from a server and showcases detailed product information, along with an interactive image gallery. The architecture includes a Node.js backend serving a React frontend, making it a great example of a full-stack MERN-like workflow.
 
 Features
