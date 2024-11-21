@@ -1,3 +1,15 @@
+![product-express-_README md at master · fuadofficial_product-express- - Google Chrome 21-11-2024 21_28_00](https://github.com/user-attachments/assets/dba4d801-a95d-4b4d-8cf5-d55152b11e32)
+
+
+
+
+
+![product-express-_README md at master · fuadofficial_product-express- - Google Chrome 21-11-2024 21_28_09](https://github.com/user-attachments/assets/28e3adfa-682d-459d-a170-e0abb7c13bdf)
+
+
+
+
+
 # Product Details Application with React and Express
 
 This project demonstrates a React and Express application designed to display product details dynamically. The application retrieves product data from a server and showcases detailed product information, along with an interactive image gallery. The architecture includes a Node.js backend serving a React frontend, making it a great example of a full-stack MERN-like 
